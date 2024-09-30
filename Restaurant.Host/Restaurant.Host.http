@@ -1,0 +1,6 @@
+@Restaurant.Host_HostAddress = http://localhost:5213
+
+GET {{Restaurant.Host_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

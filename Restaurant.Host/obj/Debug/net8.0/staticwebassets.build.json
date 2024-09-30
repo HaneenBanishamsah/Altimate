@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "7XWonN1ZzYDZ2Mgoy9srY2y+8dftGECbWUncKnNQRJk=",
+  "Source": "Restaurant.Host",
+  "BasePath": "_content/Restaurant.Host",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
