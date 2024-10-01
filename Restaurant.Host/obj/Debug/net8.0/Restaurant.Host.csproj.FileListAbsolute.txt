@@ -36,3 +36,4 @@ C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.Host
 C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.Host\obj\Debug\net8.0\Restaurant.Host.pdb
 C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.Host\obj\Debug\net8.0\Restaurant.Host.genruntimeconfig.cache
 C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.Host\obj\Debug\net8.0\ref\Restaurant.Host.dll
+C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.Host\obj\Debug\net8.0\Restaurant.Host.sourcelink.json

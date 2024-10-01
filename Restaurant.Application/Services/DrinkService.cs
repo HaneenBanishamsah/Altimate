@@ -10,7 +10,18 @@ namespace Restaurant.Application.Services
 
         public DrinkService()
         {
-            _drinks = new List<Drink>();
+            // to get it from the list
+
+            _drinks = new List<Drink>
+            {
+                new Drink { Id = 1, Name = "Chat Cola", Price = 1 },
+                new Drink { Id = 2, Name = "Ice cofee", Price = 3.5 },
+                new Drink { Id = 3, Name = "Hot chocolate", Price = 5},
+                new Drink { Id = 4, Name = "sama cola", Price = 1.5 }
+            };
+
+
+
         }
 
         public Drink GetDrinkById(int id)

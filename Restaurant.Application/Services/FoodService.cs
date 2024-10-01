@@ -9,7 +9,13 @@ namespace Restaurant.Application.Services
 
         public FoodService()
         {
-            _foods = new List<Food>();
+            _foods = new List<Food>
+            {
+                new Food { Id = 5, Name = "Pizza", Price = 30 },
+                new Food { Id = 6, Name = "Burger", Price = 22.5 },
+                new Food { Id = 7, Name = "Pasta", Price = 34.99 },
+                new Food { Id = 8, Name = "Makloubah", Price = 59.99 }
+            };
         }
 
         public Food GetFoodById(int id)

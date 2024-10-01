@@ -9,3 +9,4 @@ C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.Doma
 C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.Domain\obj\Debug\net8.0\refint\Restaurant.Domain.dll
 C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.Domain\obj\Debug\net8.0\Restaurant.Domain.pdb
 C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.Domain\obj\Debug\net8.0\ref\Restaurant.Domain.dll
+C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.Domain\obj\Debug\net8.0\Restaurant.Domain.sourcelink.json

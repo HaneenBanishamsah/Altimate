@@ -13,3 +13,4 @@ C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.Cont
 C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.Contracts\obj\Debug\net8.0\refint\Restaurant.Contracts.dll
 C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.Contracts\obj\Debug\net8.0\Restaurant.Contracts.pdb
 C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.Contracts\obj\Debug\net8.0\ref\Restaurant.Contracts.dll
+C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.Contracts\obj\Debug\net8.0\Restaurant.Contracts.sourcelink.json
