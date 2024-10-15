@@ -1,0 +1,16 @@
+C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.DataCenter\bin\Debug\net8.0\Restaurant.DataCenter.deps.json
+C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.DataCenter\bin\Debug\net8.0\Restaurant.DataCenter.dll
+C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.DataCenter\bin\Debug\net8.0\Restaurant.DataCenter.pdb
+C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.DataCenter\bin\Debug\net8.0\Restaurant.Domain.dll
+C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.DataCenter\bin\Debug\net8.0\Restaurant.Domain.pdb
+C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.DataCenter\obj\Debug\net8.0\Restaurant.DataCenter.csproj.AssemblyReference.cache
+C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.DataCenter\obj\Debug\net8.0\Restaurant.DataCenter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.DataCenter\obj\Debug\net8.0\Restaurant.DataCenter.AssemblyInfoInputs.cache
+C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.DataCenter\obj\Debug\net8.0\Restaurant.DataCenter.AssemblyInfo.cs
+C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.DataCenter\obj\Debug\net8.0\Restaurant.DataCenter.csproj.CoreCompileInputs.cache
+C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.DataCenter\obj\Debug\net8.0\Restaurant.DataCenter.sourcelink.json
+C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.DataCenter\obj\Debug\net8.0\Restaura.B6BD4D15.Up2Date
+C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.DataCenter\obj\Debug\net8.0\Restaurant.DataCenter.dll
+C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.DataCenter\obj\Debug\net8.0\refint\Restaurant.DataCenter.dll
+C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.DataCenter\obj\Debug\net8.0\Restaurant.DataCenter.pdb
+C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.DataCenter\obj\Debug\net8.0\ref\Restaurant.DataCenter.dll

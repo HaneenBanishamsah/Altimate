@@ -1,54 +1,50 @@
-﻿using Restaurant.Contracts.Interfaces;
+﻿using DataCenter;
+using Restaurant.Contracts.Interfaces;
 using Restaurant.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Restaurant.Application.Services
 {
     public class FoodService : IFoodService
     {
-        private readonly List<Food> _foods;
+        private readonly ApplicationDbContext _context;
 
-        public FoodService()
+        public FoodService(ApplicationDbContext context)
         {
-            _foods = new List<Food>
-            {
-                new Food { Id = 5, Name = "Pizza", Price = 30 },
-                new Food { Id = 6, Name = "Burger", Price = 22.5 },
-                new Food { Id = 7, Name = "Pasta", Price = 34.99 },
-                new Food { Id = 8, Name = "Makloubah", Price = 59.99 }
-            };
+            _context = context;
         }
 
-        public Food GetFoodById(int id)
+        public async Task<List<Food>> GetAllFoodsAsync()
         {
-            return _foods.FirstOrDefault(f => f.Id == id);
+            return await _context.Foods.ToListAsync();
         }
 
-        public IEnumerable<Food> GetAllFoods()
+        public async Task<Food> GetFoodByIdAsync(int id)
         {
-            return _foods;
+            return await _context.Foods.FirstOrDefaultAsync(f => f.Id == id);
         }
 
-        public void AddFood(Food food)
+        public async Task AddFoodAsync(Food food)
         {
-            _foods.Add(food);
+            await _context.Foods.AddAsync(food);
+            await _context.SaveChangesAsync();
         }
 
-        public void UpdateFood(Food food)
+        public async Task UpdateFoodAsync(Food food)
         {
-            var existingFood = GetFoodById(food.Id);
-            if (existingFood != null)
-            {
-                existingFood.Name = food.Name;
-                existingFood.Price = food.Price;
-            }
+            _context.Foods.Update(food);
+            await _context.SaveChangesAsync();
         }
 
-        public void DeleteFood(int id)
+        public async Task DeleteFoodAsync(int id)
         {
-            var food = GetFoodById(id);
+            var food = await GetFoodByIdAsync(id);
             if (food != null)
             {
-                _foods.Remove(food);
+                _context.Foods.Remove(food);
+                await _context.SaveChangesAsync();
             }
         }
     }

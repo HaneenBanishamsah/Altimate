@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Restaurant.Contracts.Interfaces;
 using Restaurant.Domain.Entities;
-using Restaurant.Contracts.DTOs;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Restaurant.Host.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
+    [ApiController]
     public class FoodController : ControllerBase
     {
         private readonly IFoodService _foodService;
@@ -16,53 +17,46 @@ namespace Restaurant.Host.Controllers
             _foodService = foodService;
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetFoodById(int id)
-        {
-            var food = _foodService.GetFoodById(id);
-            if (food == null)
-                return NotFound();
-
-            return Ok(food);
-        }
-
         [HttpGet]
-        public IActionResult GetAllFoods()
+        public async Task<ActionResult<List<Food>>> GetAllFoods()
         {
-            var foods = _foodService.GetAllFoods();
+            var foods = await _foodService.GetAllFoodsAsync();
             return Ok(foods);
         }
 
-        [HttpPost]
-        public IActionResult AddFood([FromBody] FoodDTO foodDto)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Food>> GetFoodById(int id)
         {
-            var food = new Food { Name = foodDto.Name, Price = foodDto.Price };
-            _foodService.AddFood(food);
+            var food = await _foodService.GetFoodByIdAsync(id);
+            if (food == null)
+            {
+                return NotFound();
+            }
+            return Ok(food);
+        }
+
+        [HttpPost]
+        public IActionResult AddFood([FromBody] Food food)
+        {
+            _foodService.AddFoodAsync(food);
             return CreatedAtAction(nameof(GetFoodById), new { id = food.Id }, food);
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateFood(int id, [FromBody] FoodDTO foodDto)
+        public IActionResult UpdateFood(int id, [FromBody] Food food)
         {
-            var food = _foodService.GetFoodById(id);
-            if (food == null)
-                return NotFound();
-
-            food.Name = foodDto.Name;
-            food.Price = foodDto.Price;
-            _foodService.UpdateFood(food);
-
+            if (id != food.Id)
+            {
+                return BadRequest();
+            }
+            _foodService.UpdateFoodAsync(food);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public IActionResult DeleteFood(int id)
         {
-            var food = _foodService.GetFoodById(id);
-            if (food == null)
-                return NotFound();
-
-            _foodService.DeleteFood(id);
+            _foodService.DeleteFoodAsync(id);
             return NoContent();
         }
     }

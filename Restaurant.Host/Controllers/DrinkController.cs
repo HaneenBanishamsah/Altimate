@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Restaurant.Contracts.Interfaces;
 using Restaurant.Domain.Entities;
-using Restaurant.Contracts.DTOs;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Restaurant.Host.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
+    [ApiController]
     public class DrinkController : ControllerBase
     {
         private readonly IDrinkService _drinkService;
@@ -16,11 +17,17 @@ namespace Restaurant.Host.Controllers
             _drinkService = drinkService;
         }
 
-        // GET: api/Drink/{id}
-        [HttpGet("{id}")]
-        public IActionResult GetDrinkById(int id)
+        [HttpGet]
+        public async Task<ActionResult<List<Drink>>> GetAllDrinks()
         {
-            var drink = _drinkService.GetDrinkById(id);
+            var drinks = await _drinkService.GetAllDrinksAsync();
+            return Ok(drinks);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Drink>> GetDrinkById(int id)
+        {
+            var drink = await _drinkService.GetDrinkByIdAsync(id);
             if (drink == null)
             {
                 return NotFound();
@@ -28,71 +35,29 @@ namespace Restaurant.Host.Controllers
             return Ok(drink);
         }
 
-        // GET: api/Drink
-        [HttpGet]
-        public IActionResult GetAllDrinks()
-        {
-            var drinks = _drinkService.GetAllDrinks();
-            return Ok(drinks);
-        }
-
-        // POST: api/Drink
         [HttpPost]
-        public IActionResult AddDrink([FromBody] DrinkDTO drinkDto)
+        public IActionResult AddDrink([FromBody] Drink drink)
         {
-            if (drinkDto == null)
-            {
-                return BadRequest("Drink data is null.");
-            }
-
-            var drink = new Drink
-            {
-                Name = drinkDto.Name,
-                Price = drinkDto.Price
-            };
-
-            _drinkService.AddDrink(drink);
-
+            _drinkService.AddDrinkAsync(drink);
             return CreatedAtAction(nameof(GetDrinkById), new { id = drink.Id }, drink);
         }
 
-        // PUT: api/Drink/{id}
         [HttpPut("{id}")]
-        public IActionResult UpdateDrink(int id, [FromBody] DrinkDTO drinkDto)
+        public IActionResult UpdateDrink(int id, [FromBody] Drink drink)
         {
-            if (drinkDto == null || id <= 0)
+            if (id != drink.Id)
             {
-                return BadRequest("Invalid input.");
+                return BadRequest();
             }
-
-            var drink = _drinkService.GetDrinkById(id);
-            if (drink == null)
-            {
-                return NotFound("Drink not found.");
-            }
-
-            // Updating the drink information
-            drink.Name = drinkDto.Name;
-            drink.Price = drinkDto.Price;
-
-            _drinkService.UpdateDrink(drink);
-
-            return NoContent(); // Successful update without any content
+            _drinkService.UpdateDrinkAsync(drink);
+            return NoContent();
         }
 
-        // DELETE: api/Drink/{id}
         [HttpDelete("{id}")]
         public IActionResult DeleteDrink(int id)
         {
-            var drink = _drinkService.GetDrinkById(id);
-            if (drink == null)
-            {
-                return NotFound("Drink not found.");
-            }
-
-            _drinkService.DeleteDrink(id);
-
-            return NoContent(); // Successful deletion without any content
+            _drinkService.DeleteDrinkAsync(id);
+            return NoContent();
         }
     }
 }

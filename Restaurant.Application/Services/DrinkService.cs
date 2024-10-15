@@ -1,60 +1,50 @@
-﻿using Restaurant.Contracts.Interfaces;
+﻿using DataCenter;
+using Restaurant.Contracts.Interfaces;
 using Restaurant.Domain.Entities;
-
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Restaurant.Application.Services
 {
     public class DrinkService : IDrinkService
     {
-        private readonly List<Drink> _drinks;
+        private readonly ApplicationDbContext _context;
 
-        public DrinkService()
+        public DrinkService(ApplicationDbContext context)
         {
-            // to get it from the list
-
-            _drinks = new List<Drink>
-            {
-                new Drink { Id = 1, Name = "Chat Cola", Price = 1 },
-                new Drink { Id = 2, Name = "Ice cofee", Price = 3.5 },
-                new Drink { Id = 3, Name = "Hot chocolate", Price = 5},
-                new Drink { Id = 4, Name = "sama cola", Price = 1.5 }
-            };
-
-
-
+            _context = context;
         }
 
-        public Drink GetDrinkById(int id)
+        public async Task<List<Drink>> GetAllDrinksAsync()
         {
-            return _drinks.FirstOrDefault(d => d.Id == id);
+            return await _context.Drinks.ToListAsync();
         }
 
-        public IEnumerable<Drink> GetAllDrinks()
+        public async Task<Drink> GetDrinkByIdAsync(int id)
         {
-            return _drinks;
+            return await _context.Drinks.FirstOrDefaultAsync(d => d.Id == id);
         }
 
-        public void AddDrink(Drink drink)
+        public async Task AddDrinkAsync(Drink drink)
         {
-            _drinks.Add(drink);
+            await _context.Drinks.AddAsync(drink);
+            await _context.SaveChangesAsync();
         }
 
-        public void UpdateDrink(Drink drink)
+        public async Task UpdateDrinkAsync(Drink drink)
         {
-            var existingDrink = GetDrinkById(drink.Id);
-            if (existingDrink != null)
-            {
-                existingDrink.Name = drink.Name;
-                existingDrink.Price = drink.Price;
-            }
+            _context.Drinks.Update(drink);
+            await _context.SaveChangesAsync();
         }
 
-        public void DeleteDrink(int id)
+        public async Task DeleteDrinkAsync(int id)
         {
-            var drink = GetDrinkById(id);
+            var drink = await GetDrinkByIdAsync(id);
             if (drink != null)
             {
-                _drinks.Remove(drink);
+                _context.Drinks.Remove(drink);
+                await _context.SaveChangesAsync();
             }
         }
     }

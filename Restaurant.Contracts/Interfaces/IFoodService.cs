@@ -1,13 +1,15 @@
 ﻿using Restaurant.Domain.Entities;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Restaurant.Contracts.Interfaces
 {
     public interface IFoodService
     {
-        Food GetFoodById(int id);
-        IEnumerable<Food> GetAllFoods();
-        void AddFood(Food food);
-        void UpdateFood(Food food);
-        void DeleteFood(int id);
+        Task<List<Food>> GetAllFoodsAsync();
+        Task<Food> GetFoodByIdAsync(int id);
+        Task AddFoodAsync(Food food);
+        Task UpdateFoodAsync(Food food);
+        Task DeleteFoodAsync(int id);
     }
 }

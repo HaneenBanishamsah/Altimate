@@ -16,3 +16,5 @@ C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.Appl
 C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.Application\obj\Debug\net8.0\Restaurant.Application.pdb
 C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.Application\obj\Debug\net8.0\ref\Restaurant.Application.dll
 C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.Application\obj\Debug\net8.0\Restaurant.Application.sourcelink.json
+C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.Application\bin\Debug\net8.0\Restaurant.DataCenter.dll
+C:\Users\Asus\OneDrive\Desktop\ultimate projects\Restaurant.Host\Restaurant.Application\bin\Debug\net8.0\Restaurant.DataCenter.pdb
